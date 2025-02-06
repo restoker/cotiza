@@ -1,6 +1,11 @@
+import { auth } from "@/server/auth";
 import AuthForm from "./ui/auth-form";
+import { redirect } from "next/navigation";
 
-export default function Home() {
+export default async function AuthHome() {
+  const session = await auth();
+  if (session?.user) redirect('/dashboard');
+
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">

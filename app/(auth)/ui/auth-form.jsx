@@ -105,7 +105,7 @@ const AuthForm = () => {
                             </a>
                         </div>
                     </div>
-                    <div className="mt-2">
+                    <div className="mt-2 relative">
                         <input
                             {...register('password', {
                                 required: true,
@@ -126,12 +126,12 @@ const AuthForm = () => {
                             ?
 
                             <LockOpenIcon
-                                className='absolute right-2 top-[6px] cursor-pointer size-6'
+                                className='absolute right-2 top-[6px] cursor-pointer size-6 text-white'
                                 onClick={() => setSee(state => !state)}
                             />
                             :
                             <LockClosedIcon
-                                className='absolute right-2 top-[6px] cursor-pointer size-6'
+                                className='absolute right-2 top-[6px] cursor-pointer size-6 text-white'
                                 onClick={() => setSee(state => !state)}
                             />
                         }

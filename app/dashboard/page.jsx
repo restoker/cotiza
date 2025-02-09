@@ -3,45 +3,26 @@
 import { useState } from 'react'
 import { Dialog, DialogBackdrop, DialogPanel, Popover, PopoverButton, PopoverPanel, TransitionChild } from '@headlessui/react'
 import {
-    ChartBarSquareIcon,
-    ChevronDownIcon,
-    Cog6ToothIcon,
-    FolderIcon,
-    GlobeAltIcon,
-    ServerIcon,
-    SignalIcon,
+    Bars3Icon,
     XMarkIcon,
 } from '@heroicons/react/24/outline'
-import { Bars3Icon, MagnifyingGlassIcon } from '@heroicons/react/20/solid'
 import Link from 'next/link'
+import Navegacion from '@/components/navigation'
 
-const navigation = [
-    { name: 'Projects', href: '#', icon: FolderIcon, current: false },
-    { name: 'Deployments', href: '#', icon: ServerIcon, current: true },
-    { name: 'Activity', href: '#', icon: SignalIcon, current: false },
-    { name: 'Domains', href: '#', icon: GlobeAltIcon, current: false },
-    { name: 'Usage', href: '#', icon: ChartBarSquareIcon, current: false },
-    { name: 'Settings', href: '#', icon: Cog6ToothIcon, current: false },
-]
 const teams = [
     { id: 1, name: 'Planetaria', href: '#', initial: 'P', current: false },
     { id: 2, name: 'Protocol', href: '#', initial: 'P', current: false },
     { id: 3, name: 'Tailwind Labs', href: '#', initial: 'T', current: false },
 ]
-const secondaryNavigation = [
-    { name: 'Overview', href: '#', current: true },
-    { name: 'Activity', href: '#', current: false },
-    { name: 'Settings', href: '#', current: false },
-    { name: 'Collaborators', href: '#', current: false },
-    { name: 'Notifications', href: '#', current: false },
-]
+
 const stats = [
     { name: 'Number of deploys', value: '405' },
     { name: 'Average deploy time', value: '3.65', unit: 'mins' },
     { name: 'Number of servers', value: '3' },
     { name: 'Success rate', value: '98.5%' },
 ]
-const statuses = { Completed: 'text-green-400 bg-green-400/10', Error: 'text-rose-400 bg-rose-400/10' }
+const statuses = { Completed: 'text-green-400 bg-green-400/10', Error: 'text-rose-400 bg-rose-400/10' };
+
 const activityItems = [
     {
         user: {
@@ -64,7 +45,7 @@ function classNames(...classes) {
 }
 
 export default function HomePage() {
-    const [sidebarOpen, setSidebarOpen] = useState(false)
+    const [sidebarOpen, setSidebarOpen] = useState(false);
 
     return (
         <>
@@ -84,7 +65,7 @@ export default function HomePage() {
                                 <div className="absolute left-full top-0 flex w-16 justify-center pt-5 duration-300 ease-in-out data-[closed]:opacity-0">
                                     <button type="button" onClick={() => setSidebarOpen(false)} className="-m-2.5 p-2.5">
                                         <span className="sr-only">Close sidebar</span>
-                                        <XMarkIcon aria-hidden="true" className="h-6 w-6 text-white" />
+                                        <XMarkIcon aria-hidden="true" className="h-6 w-6 text-red-500" />
                                     </button>
                                 </div>
                             </TransitionChild>
@@ -100,24 +81,7 @@ export default function HomePage() {
                                 <nav className="flex flex-1 flex-col">
                                     <ul role="list" className="flex flex-1 flex-col gap-y-7">
                                         <li>
-                                            <ul role="list" className="-mx-2 space-y-1">
-                                                {navigation.map((item) => (
-                                                    <li key={item.name}>
-                                                        <a
-                                                            href={item.href}
-                                                            className={classNames(
-                                                                item.current
-                                                                    ? 'bg-gray-800 text-white'
-                                                                    : 'text-gray-400 hover:bg-gray-800 hover:text-white',
-                                                                'group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6',
-                                                            )}
-                                                        >
-                                                            <item.icon aria-hidden="true" className="h-6 w-6 shrink-0" />
-                                                            {item.name}
-                                                        </a>
-                                                    </li>
-                                                ))}
-                                            </ul>
+                                            <Navegacion />
                                         </li>
                                         <li>
                                             <div className="text-xs font-semibold leading-6 text-gray-400">Your teams</div>
@@ -170,31 +134,14 @@ export default function HomePage() {
                         <div className="flex h-16 shrink-0 items-center">
                             <img
                                 alt="Your Company"
-                                src="https://tailwindui.com/plus/img/logos/mark.svg?color=lime&shade=500"
+                                src="https://tailwindui.com/plus-assets/img/logos/mark.svg?color=lime&shade=500"
                                 className="h-8 w-auto"
                             />
                         </div>
                         <nav className="flex flex-1 flex-col">
                             <ul role="list" className="flex flex-1 flex-col gap-y-7">
                                 <li>
-                                    <ul role="list" className="-mx-2 space-y-1">
-                                        {navigation.map((item) => (
-                                            <li key={item.name}>
-                                                <a
-                                                    href={item.href}
-                                                    className={classNames(
-                                                        item.current
-                                                            ? 'bg-gray-800 text-white'
-                                                            : 'text-gray-400 hover:bg-gray-800 hover:text-white',
-                                                        'group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6',
-                                                    )}
-                                                >
-                                                    <item.icon aria-hidden="true" className="h-6 w-6 shrink-0" />
-                                                    {item.name}
-                                                </a>
-                                            </li>
-                                        ))}
-                                    </ul>
+                                    <Navegacion />
                                 </li>
                                 <li>
                                     <div className="text-xs font-semibold leading-6 text-gray-400">Your teams</div>
@@ -253,14 +200,14 @@ export default function HomePage() {
 
                 <div className="xl:pl-72">
                     {/* Sticky search header */}
-                    {/* <div className="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-6 border-b border-white/5 bg-gray-900 px-4 shadow-sm sm:px-6 lg:px-8">
+                    <div className="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-6 border-b border-white/5 bg-gray-900 px-4 shadow-sm sm:px-6 lg:px-8">
                         <button type="button" onClick={() => setSidebarOpen(true)} className="-m-2.5 p-2.5 text-white xl:hidden">
                             <span className="sr-only">Open sidebar</span>
                             <Bars3Icon aria-hidden="true" className="h-5 w-5" />
                         </button>
 
                         <div className="flex flex-1 gap-x-4 self-stretch lg:gap-x-6">
-                            <form action="#" method="GET" className="flex flex-1">
+                            {/* <form action="#" method="GET" className="flex flex-1">
                                 <label htmlFor="search-field" className="sr-only">
                                     Search
                                 </label>
@@ -277,28 +224,12 @@ export default function HomePage() {
                                         className="block h-full w-full border-0 bg-transparent py-0 pl-8 pr-0 text-white focus:ring-0 sm:text-sm"
                                     />
                                 </div>
-                            </form>
+                            </form> */}
                         </div>
-                    </div> */}
+                    </div>
 
                     <main>
                         <header>
-                            {/* Secondary navigation */}
-                            <nav className="flex overflow-x-auto border-b border-white/10 py-4">
-                                <ul
-                                    role="list"
-                                    className="flex min-w-full flex-none gap-x-6 px-4 text-sm font-semibold leading-6 text-gray-400 sm:px-6 lg:px-8"
-                                >
-                                    {secondaryNavigation.map((item) => (
-                                        <li key={item.name}>
-                                            <a href={item.href} className={item.current ? 'text-lime-400' : ''}>
-                                                {item.name}
-                                            </a>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </nav>
-
                             {/* Heading */}
                             <div className="flex flex-col items-start justify-between gap-x-8 gap-y-4 bg-gray-700/10 px-4 py-4 sm:flex-row sm:items-center sm:px-6 lg:px-8">
                                 <div>

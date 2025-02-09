@@ -25,11 +25,10 @@ export default async function AuthHome() {
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
         <AuthForm />
-
         <p className="mt-10 text-center text-sm text-zinc-400">
-          Not a member?{' '}
+          want you a prove?{' '}
           <a href="#" className="font-semibold leading-6 text-lime-400 hover:text-lime-300">
-            Start a 14 day free trial
+            get a free trial
           </a>
         </p>
       </div>

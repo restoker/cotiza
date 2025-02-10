@@ -29,6 +29,7 @@ export default async function DashBoardLayout({
     const sesssion = await auth();
 
     if (!sesssion?.user) redirect('/');
+
     return (
         <div>
 

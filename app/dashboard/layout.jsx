@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Navegacion from "@/components/navigation";
 import ButtonOpenSidebar from "@/components/button-open-sidebar";
 import MobileSidebar from "@/components/mobile-sidebar";
+import Aurora from "@/components/aurora";
 
 const teams = [
     { id: 1, name: 'Planetaria', href: '#', initial: 'P', current: false },
@@ -32,7 +33,9 @@ export default async function DashBoardLayout({
 
     return (
         <div>
-
+            <Aurora
+                speed={0.5}
+            />
             <MobileSidebar />
 
             {/* Static sidebar for desktop */}
@@ -47,11 +50,11 @@ export default async function DashBoardLayout({
                         />
                     </div>
                     <nav className="flex flex-1 flex-col">
-                        <ul role="list" className="flex flex-1 flex-col gap-y-7">
+                        <ul className="flex flex-1 flex-col gap-y-7">
                             <li>
                                 <Navegacion />
                             </li>
-                            <li>
+                            {/* <li>
                                 <div className="text-xs font-semibold leading-6 text-gray-400">Your teams</div>
                                 <ul role="list" className="-mx-2 mt-2 space-y-1">
                                     {teams.map((team) => (
@@ -73,7 +76,7 @@ export default async function DashBoardLayout({
                                         </li>
                                     ))}
                                 </ul>
-                            </li>
+                            </li> */}
 
                             <li className="-mx-6 mt-auto">
                                 <Popover className="relative">
@@ -108,7 +111,7 @@ export default async function DashBoardLayout({
 
             <div className="xl:pl-72">
                 {/* Sticky search header */}
-                <div className="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-6 border-b border-white/5 bg-gray-900 px-4 shadow-sm sm:px-6 lg:px-8">
+                <div className="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-6 border-b border-white/5 bg-transparent px-4 shadow-sm sm:px-6 lg:px-8">
                     <ButtonOpenSidebar />
 
                     <div className="flex flex-1 gap-x-4 self-stretch lg:gap-x-6">

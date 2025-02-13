@@ -40,14 +40,14 @@ const ActionCell = ({ row }) => {
             <DropdownMenuContent>
                 <DropdownMenuItem className="dark:focus:bg-primary focus:bg-primary/50 cursor-pointer">
                     <Link href={`/dashboard/add-product?id=${product.id}`}>
-                        Edit Product
+                        Editar Producto
                     </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem
                     // onClick={() => execute({ id: product.id })}
                     className="dark:focus:bg-destructive focus:bg-destructive/50 cursor-pointer"
                 >
-                    Delete Product
+                    Eliminar Producto
                 </DropdownMenuItem>
             </DropdownMenuContent>
         </DropdownMenu>

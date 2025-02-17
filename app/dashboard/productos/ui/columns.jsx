@@ -9,8 +9,6 @@ import {
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import Link from "next/link"
@@ -38,6 +36,11 @@ const ActionCell = ({ row }) => {
                 </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent>
+                <DropdownMenuItem className="dark:focus:bg-primary focus:bg-primary/50 cursor-pointer">
+                    <Link href={`/dashboard/productos/${product.id}`}>
+                        Cotizar producto
+                    </Link>
+                </DropdownMenuItem>
                 <DropdownMenuItem className="dark:focus:bg-primary focus:bg-primary/50 cursor-pointer">
                     <Link href={`/dashboard/add-product?id=${product.id}`}>
                         Editar Producto
@@ -72,8 +75,8 @@ export const columns = [
         header: "Price",
         cell: ({ row }) => {
             const price = parseFloat(row.getValue("price"))
-            const formatted = new Intl.NumberFormat("en-US", {
-                currency: "USD",
+            const formatted = new Intl.NumberFormat("es-PE", {
+                currency: "PEN",
                 style: "currency",
             }).format(price)
             return <div className="font-medium text-xs">{formatted}</div>

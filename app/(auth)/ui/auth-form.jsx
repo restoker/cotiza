@@ -99,11 +99,11 @@ const AuthForm = () => {
                         <label htmlFor="password" className="block text-sm font-medium leading-6 text-white">
                             Password
                         </label>
-                        <div className="text-sm">
+                        {/* <div className="text-sm">
                             <a href="#" className="font-semibold text-lime-400 hover:text-lime-300">
                                 Forgot password?
                             </a>
-                        </div>
+                        </div> */}
                     </div>
                     <div className="mt-2 relative">
                         <input

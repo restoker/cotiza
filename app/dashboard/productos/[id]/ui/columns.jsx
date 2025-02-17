@@ -37,24 +37,19 @@ const ActionCell = ({ row }) => {
             <DropdownMenuContent>
                 <DropdownMenuItem className="dark:focus:bg-primary focus:bg-primary/50 cursor-pointer">
                     <Link href={`/dashboard/productos/${product.id}`}>
-                        Cotizar producto
+                        Ver cotizacion
                     </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem className="dark:focus:bg-primary focus:bg-primary/50 cursor-pointer">
                     <Link href={`/dashboard/add-product?id=${product.id}`}>
-                        Editar Producto
+                        Editar cotizacion
                     </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem
-                    // onClick={() => execute({ id: product.id })}
-                    className="dark:focus:bg-destructive focus:bg-destructive/50 cursor-pointer"
-                >
-                    Eliminar Producto
                 </DropdownMenuItem>
             </DropdownMenuContent>
         </DropdownMenu>
     )
 }
+
 
 export const columns = [
     {
@@ -105,5 +100,4 @@ export const columns = [
         header: "Actions",
         cell: ActionCell,
     },
-
 ]

@@ -6,6 +6,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { es } from 'date-fns/locale'
 import formatPrice from "@/lib/format-price";
+import TableCotizaciones from "./ui/table-cotizaciones";
 
 export async function generateMetadata({ params }) {
     let orden = await db.query.products.findFirst({
@@ -18,8 +19,9 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function ProductPage({ params }) {
+    const { id } = await params;
     let product = await db.query.products.findFirst({
-        where: (products, { eq }) => eq(products.id, params.id),
+        where: (products, { eq }) => eq(products.id, id),
         with: {
             productImages: {
                 columns: {
@@ -71,7 +73,7 @@ export default async function ProductPage({ params }) {
                         Editar
                     </Link>
 
-                    <Link className="flex items-center gap-x-1.5 rounded-md bg-lime-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-lime-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-600" href={`/dashboard/cotizaciones/new-cotizacion?idProduct=${params.id}`}>
+                    <Link className="flex items-center gap-x-1.5 rounded-md bg-lime-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-lime-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-600" href={`/dashboard/cotizaciones/new-cotizacion?idProduct=${id}`}>
                         <CheckCircleIcon aria-hidden="true" className="-ml-0.5 h-5 w-5" />
                         Crear Cotización
                     </Link>
@@ -105,7 +107,7 @@ export default async function ProductPage({ params }) {
                 {/* <Stat title="Pageviews" value={event.pageViews} change={event.pageViewsChange} /> */}
             </div>
             <h2 className="text-base/7 font-semibold text-zinc-950 sm:text-sm/6 dark:text-white mt-12">Cotizaciones recientes</h2>
-
+            <TableCotizaciones url={product.productImages[0].url} id={params.id} />
         </div>
     );
 }

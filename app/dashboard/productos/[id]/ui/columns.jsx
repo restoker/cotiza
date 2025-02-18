@@ -1,15 +1,14 @@
 "use client"
 
 import { MoreHorizontal } from "lucide-react"
-
 import { Button } from "@/components/ui/button"
 import {
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuItem,
     DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import Link from "next/link"
+} from "@/components/ui/dropdown-menu";
+import Link from "next/link";
 
 const ActionCell = ({ row }) => {
     // const { status, execute } = useAction(deleteProduct, {
@@ -36,13 +35,13 @@ const ActionCell = ({ row }) => {
             </DropdownMenuTrigger>
             <DropdownMenuContent>
                 <DropdownMenuItem className="dark:focus:bg-primary focus:bg-primary/50 cursor-pointer">
-                    <Link href={`/dashboard/productos/${product.id}`}>
-                        Ver cotizacion
+                    <Link href={`/dashboard/cotizaciones/${product.id}`}>
+                        Ver cotización
                     </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem className="dark:focus:bg-primary focus:bg-primary/50 cursor-pointer">
-                    <Link href={`/dashboard/add-product?id=${product.id}`}>
-                        Editar cotizacion
+                    <Link href={`/dashboard/new-cotizacion?id=${product.id}`}>
+                        Editar cotización
                     </Link>
                 </DropdownMenuItem>
             </DropdownMenuContent>
@@ -55,10 +54,6 @@ export const columns = [
     {
         accessorKey: "id",
         header: "ID",
-    },
-    {
-        accessorKey: "Titulo",
-        header: "Titulo",
     },
     {
         accessorKey: "cantidad",
@@ -77,22 +72,15 @@ export const columns = [
         },
     },
     {
-        accessorKey: "imagen",
-        header: "Imagen",
+        accessorKey: "redito",
+        header: "Ganancia/Perdida",
         cell: ({ row }) => {
-            const cellImage = row.getValue("imagen");
-            const cellTitle = row.getValue("Titulo");
-            return (
-                <div className="">
-                    <img
-                        src={cellImage}
-                        alt={cellTitle}
-                        width={50}
-                        height={50}
-                        className="rounded-md"
-                    />
-                </div>
-            )
+            const price = parseFloat(row.getValue("redito"));
+            const formatted = new Intl.NumberFormat("es-PE", {
+                currency: "PEN",
+                style: "currency",
+            }).format(price)
+            return <div className="font-medium text-xs">{formatted}</div>
         },
     },
     {

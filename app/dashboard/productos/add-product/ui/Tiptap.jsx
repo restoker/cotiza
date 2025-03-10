@@ -55,7 +55,7 @@ const Tiptap = ({ value, }) => {
                         aria-label="Toggle bold"
 
                     >
-                        <BoldIcon className="h-4 w-4" />
+                        <BoldIcon className="h-4 w-4 text-white" />
                     </Toggle>
                     <Toggle
                         pressed={editor.isActive('italic')}
@@ -63,7 +63,7 @@ const Tiptap = ({ value, }) => {
                         size={'sm'}
                         aria-label="Toggle italic"
                     >
-                        <ItalicIcon className="h-4 w-4" />
+                        <ItalicIcon className="h-4 w-4 text-white" />
                     </Toggle>
                     <Toggle
                         pressed={editor.isActive('strike')}
@@ -71,7 +71,7 @@ const Tiptap = ({ value, }) => {
                         size={'sm'}
 
                     >
-                        <StrikethroughIcon className="h-4 w-4" />
+                        <StrikethroughIcon className="h-4 w-4 text-white" />
                     </Toggle>
                     <Toggle
                         style={{}}
@@ -80,14 +80,14 @@ const Tiptap = ({ value, }) => {
                         size={'sm'}
 
                     >
-                        <ListBulletIcon className="h-4 w-4" />
+                        <ListBulletIcon className="h-4 w-4 text-white" />
                     </Toggle>
                     <Toggle
                         pressed={editor.isActive('bulletList')}
                         onPressedChange={() => editor.chain().focus().toggleBulletList().run()}
                         size={'sm'}
                     >
-                        <NumberedListIcon className="h-4 w-4" />
+                        <NumberedListIcon className="h-4 w-4 text-white" />
                     </Toggle>
                 </div>
                 : null}

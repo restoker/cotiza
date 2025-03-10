@@ -176,11 +176,11 @@ const FormProduct = () => {
                         name="quantity"
                         render={({ field }) => (
                             <FormItem className='max-w-xl'>
-                                <FormLabel>Cantidad</FormLabel>
+                                <FormLabel className='text-white'>Cantidad</FormLabel>
                                 <FormControl>
                                     <div className="flex items-center gap-2">
                                         <ShoppingBagIcon
-                                            className="bg-muted  rounded-md size-8"
+                                            className="bg-muted rounded-md size-8 text-white"
                                         />
                                         <Input
                                             {...field}

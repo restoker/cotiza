@@ -8,29 +8,6 @@ import { Button } from '@/components/ui/button';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 
 const TableOfCotizaciones = ({ columns, data }) => {
-    // <Table className="mt-4 [--gutter:theme(spacing.6)] lg:[--gutter:theme(spacing.10)]">
-    //     <TableHead>
-    //         <TableRow>
-    //             <TableHeader>Order number</TableHeader>
-    //             <TableHeader>Ganancia</TableHeader>
-    //             <TableHeader>Cantidad</TableHeader>
-    //             <TableHeader className="text-right">Precio</TableHeader>
-    //         </TableRow>
-    //     </TableHead>
-    //     <TableBody>
-    //         {
-    //             cotizaciones.map((cotz) => (
-    //                 <TableRow key={cotz.id} href={`/dashboard/orders/${cotz.id}?url=${url}`} title={`Order #${cotz.id}`}>
-    //                     <TableCell>{cotz.id.split('-')[0]}</TableCell>
-    //                     <TableCell className="text-zinc-500">{cotz.price}</TableCell>
-    //                     <TableCell>{cotz.quantity}</TableCell>
-    //                     <TableCell className="text-right">{formatPrice(cotz.price)}</TableCell>
-    //                 </TableRow>
-    //             ))
-    //         }
-    //     </TableBody>
-    // </Table>
-
     const [sorting, setSorting] = useState([]);
     const [columnFilters, setColumnFilters] = useState([])
     const table = useReactTable({
@@ -39,10 +16,14 @@ const TableOfCotizaciones = ({ columns, data }) => {
         getCoreRowModel: getCoreRowModel(),
         getPaginationRowModel: getPaginationRowModel(),
         getFilteredRowModel: getFilteredRowModel(),
-        onColumnFiltersChange: setColumnFilters,
-        state: {
-            sorting,
-            columnFilters,
+        // onColumnFiltersChange: setColumnFilters,
+        initialState: {
+            sorting: [
+                {
+                    id: 'redito',
+                    desc: true, // sort by name in descending order by default
+                },
+            ],
         },
     });
 

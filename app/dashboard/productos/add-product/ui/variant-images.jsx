@@ -49,6 +49,16 @@ const VariantImages = ({ idProduct }) => {
                         <FormControl>
                             <UploadDropzone
                                 className='ut-allowed-content:text-amber-300 ut-label:text-amber-500 ut-upload-icon:text-amber-500/60 hover:bg-amber-500/10 transition-all duration-500 ease-in-out border-amber-500 ut-button:bg-amber-500/75 ut-button:ut-readying:bg-amber-400'
+                                // className="bg-slate-800 ut-label:text-lg ut-allowed-content:ut-uploading:text-red-300"
+                                appearance={{
+                                    // button:
+                                    //     "ut-ready:bg-green-500 ut-uploading:cursor-not-allowed rounded-r-none bg-red-500 bg-none after:bg-orange-400",
+                                    // container: "w-max flex-row rounded-md border-cyan-300 bg-slate-800",
+                                    // allowedContent:
+                                    //     "flex h-8 flex-col items-center justify-center px-2 text-white",
+                                    uploadIcon: 'size-10'
+
+                                }}
                                 endpoint='productUploader'
                                 onUploadError={(error) => {
                                     setError('image', {

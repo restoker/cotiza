@@ -11,7 +11,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 // import { z } from 'zod';
 import VariantImages from './variant-images.jsx';
-import Tiptap from './Tiptap';
+import Tiptap from './Tiptap.jsx';
 import { createProductAction } from '@/server/actions/create-product';
 import { toast } from 'sonner';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -109,7 +109,7 @@ const FormProduct = () => {
 
     if (chargetProduct) {
         return (
-            <p className='text-center text-xl text-lime-500'>Cargando...</p>
+            <p className='flex justify-center items-center w-full text-center text-xl text-lime-50'>Cargando...</p>
         )
     }
 

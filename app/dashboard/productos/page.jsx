@@ -31,7 +31,7 @@ export default async function ProductosPage() {
     if (!dataTable) throw new Error('No data found');
     return (
         <div>
-            <Link className="absolute px-3 py-2 top-3 right-10 bg-lime-600 rounded-lg text-white hover:bg-lime-500 cursor-pointer z-40" href={'/dashboard/productos/add-product'} >
+            <Link className="absolute px-3 py-2 top-3 right-10 bg-lime-600 rounded-lg text-white hover:bg-lime-500 cursor-pointer z-40" href={'/dashboard/productos/addproduct'} >
                 Crear Producto
             </Link>
             <DataTable data={dataTable} columns={columns} />

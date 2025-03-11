@@ -130,8 +130,8 @@ const VariantImages = ({ idProduct }) => {
                         {fields.map((field, i) => {
                             return (
                                 <tr key={i}>
-                                    <TableCell className='border-2'>{field.name}</TableCell>
-                                    <TableCell className='border-2'>{(field.size / (1024 * 1024)).toFixed(2)} MB</TableCell>
+                                    <TableCell className='border-2 text-white'>{field.name}</TableCell>
+                                    <TableCell className='border-2 text-white'>{(field.size / (1024 * 1024)).toFixed(2)} MB</TableCell>
                                     <TableCell className='border-2'>
                                         <img
                                             className='rounded-lg w-auto h-20'
@@ -150,7 +150,7 @@ const VariantImages = ({ idProduct }) => {
                                             }}
                                         >
                                             <TrashIcon
-                                                className='h-4 w-4'
+                                                className='h-4 w-4 text-red-400'
                                             />
                                         </Button>
                                     </TableCell>

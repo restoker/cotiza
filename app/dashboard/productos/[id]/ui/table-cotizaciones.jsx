@@ -37,8 +37,8 @@ const TableCotizaciones = async ({ url, id }) => {
             {cotizaciones.length === 0
                 ?
                 <div className='flex flex-col justify-center w-full items-center h-full py-20'>
-                    <ChatBubbleBottomCenterTextIcon className='size-14 mb-6 animate-bounce' />
-                    <p>No tienes ninguná cotización para este producto</p>
+                    <ChatBubbleBottomCenterTextIcon className='size-14 mb-6 animate-bounce text-white' />
+                    <p className='text-white'>No tienes ninguná cotización para este producto</p>
                 </div>
                 :
                 <TableOfCotizaciones data={data} columns={columns} />

@@ -41,7 +41,7 @@ const ActionCell = ({ row }) => {
                     </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem className="dark:focus:bg-primary focus:bg-primary/50 cursor-pointer">
-                    <Link href={`/dashboard/add-product?id=${product.id}`}>
+                    <Link href={`/dashboard/productos/addproduct?id=${product.id}`}>
                         Editar Producto
                     </Link>
                 </DropdownMenuItem>

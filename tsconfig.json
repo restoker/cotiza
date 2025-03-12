@@ -32,7 +32,12 @@
     "next-env.d.ts",
     ".next/types/**/*.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "types/order-schema.js",
+    "app/dashboard/cotizaciones/addcotizacion/ui/Tiptap.jsx",
+    "app/dashboard/cotizaciones/addcotizacion/ui/FormOrder.jsx",
+    "server/actions/get-cotization.js",
+    "server/actions/create-cotizacion.js"
   ],
   "exclude": [
     "node_modules"

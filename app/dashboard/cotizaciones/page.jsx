@@ -39,9 +39,9 @@ export default async function CotizacionesPage() {
     return (
         <div>
             <div>
-                <Link className="absolute px-3 py-2 top-3 right-10 bg-lime-600 rounded-lg text-white hover:bg-lime-500 cursor-pointer z-40" href={'/dashboard/cotizaciones/addcotizacion'} >
+                {/* <Link className="absolute px-3 py-2 top-3 right-10 bg-lime-600 rounded-lg text-white hover:bg-lime-500 cursor-pointer z-40" href={'/dashboard/cotizaciones/addcotizacion'} >
                     Crear Cotizacion
-                </Link>
+                </Link> */}
                 <DataTable data={dataTable} columns={columns} />
             </div>
         </div>

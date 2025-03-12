@@ -16,16 +16,20 @@ const TableOfCotizaciones = ({ columns, data }) => {
         getCoreRowModel: getCoreRowModel(),
         getPaginationRowModel: getPaginationRowModel(),
         getFilteredRowModel: getFilteredRowModel(),
+        sortDescFirst: true,
         // onColumnFiltersChange: setColumnFilters,
-        initialState: {
-            sorting: [
-                {
-                    id: 'redito',
-                    desc: true, // sort by name in descending order by default
-                },
-            ],
-        },
+        // sortDescFirst: false,
+        // initialState: {
+        //     sorting: [
+        //         {
+        //             id: 'redito',
+        //             asc: true, // sort by name in descending order by default
+        //         },
+        //     ],
+        // },
     });
+
+    console.log(table.getState().sorting)
 
     return (
         <>

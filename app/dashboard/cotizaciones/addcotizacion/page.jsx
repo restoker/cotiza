@@ -2,7 +2,7 @@
 export default function NewCotizacionPage() {
     return (
         <div>
-            <h1>Hello Page</h1>
+            <h1 className="text-white">Nueva cotizacion :D</h1>
         </div>
     );
 }

@@ -24,7 +24,9 @@ const ActionCell = ({ row }) => {
     //         toast.loading("Deleting Product")
     //     },
     // })
-    const product = row.original
+    const product = row.original;
+
+    console.log(product);
 
     return (
         <DropdownMenu>
@@ -40,7 +42,7 @@ const ActionCell = ({ row }) => {
                     </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem className="dark:focus:bg-primary focus:bg-primary/50 cursor-pointer">
-                    <Link href={`/dashboard/new-cotizacion?id=${product.id}`}>
+                    <Link href={`/dashboard/cotizaciones/addcotizacion?id=${product.id}&idProduct=${product.productoId}`}>
                         Editar cotización
                     </Link>
                 </DropdownMenuItem>

@@ -156,7 +156,7 @@ const FormOrder = () => {
 
     return (
         <>
-            <h1 className='text-3xl mb-4 text-lime-500 font-bold'>Nueva cotización</h1>
+            <h1 className='text-3xl mb-4 text-lime-50 font-bold'>Nueva cotización</h1>
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
                     <div className="space-y-6">

@@ -27,6 +27,7 @@ const TableCotizaciones = async ({ url, id }) => {
             price: cotizacion.price,
             cantidad: cotizacion.quantity,
             redito: Number(cotizacion.price) - Number(cotizacion.products.price),
+            productoId: cotizacion.productId,
         }
     });
 

@@ -1,5 +1,38 @@
+import { db } from "@/server";
+import { notFound } from "next/navigation";
 
-export default async function CotizationPage() {
+export default async function CotizationPage({ params }) {
+
+    const { id } = await params;
+    let cotizacion = await db.query.productVariant.findFirst({
+        where: (productVariant, { eq }) => eq(productVariant.id, id),
+        with: {
+            products: {
+                columns: {
+                    id: true,
+                    price: true,
+                    title: true,
+                    quantity: true,
+                    state: true,
+                },
+                with: {
+                    productImages: {
+                        columns: {
+                            key: true,
+                            url: true,
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    console.log(cotizacion);
+
+    if (!cotizacion) {
+        notFound();
+    }
+
     const products = [
         {
             id: 1,

@@ -26,7 +26,7 @@ const ActionCell = ({ row }) => {
     // })
     const product = row.original;
 
-    console.log(product);
+    // console.log(product);
 
     return (
         <DropdownMenu>

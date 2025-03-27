@@ -1,6 +1,8 @@
 import formatPrice from "@/lib/format-price";
 import { db } from "@/server";
+import { GlobeAmericasIcon } from "@heroicons/react/24/outline";
 import { clsx } from "clsx";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
 export default async function CotizationPage({ params }) {
@@ -36,19 +38,19 @@ export default async function CotizationPage({ params }) {
         notFound();
     }
 
-    const products = [
-        {
-            id: 1,
-            name: 'Cold Brew Bottle',
-            description:
-                'This glass bottle comes with a mesh insert for steeping tea or cold-brewing coffee. Pour from any angle and remove the top for easy cleaning.',
-            href: '#',
-            quantity: 1,
-            price: '$32.00',
-            imageSrc: 'https://tailwindcss.com/plus-assets/img/ecommerce-images/confirmation-page-05-product-01.jpg',
-            imageAlt: 'Glass bottle with black plastic pour top and mesh insert.',
-        },
-    ]
+    // const products = [
+    //     {
+    //         id: 1,
+    //         name: 'Cold Brew Bottle',
+    //         description:
+    //             'This glass bottle comes with a mesh insert for steeping tea or cold-brewing coffee. Pour from any angle and remove the top for easy cleaning.',
+    //         href: '#',
+    //         quantity: 1,
+    //         price: '$32.00',
+    //         imageSrc: 'https://tailwindcss.com/plus-assets/img/ecommerce-images/confirmation-page-05-product-01.jpg',
+    //         imageAlt: 'Glass bottle with black plastic pour top and mesh insert.',
+    //     },
+    // ]
     return (
         <>
             <main className="px-4 pb-24 sm:px-6 lg:px-8 lg:py-10">
@@ -108,9 +110,17 @@ export default async function CotizationPage({ params }) {
                                     <dt className="font-medium text-gray-50">Dirección</dt>
                                     <dd className="mt-2 text-gray-400">
                                         <address className="not-italic">
-                                            <span className="block">Kristin Watson</span>
-                                            <span className="block">7363 Cynthia Pass</span>
-                                            {/* <span className="block">Toronto, ON N3Y 4H8</span> */}
+                                            <span className="block">{cotizacion.owner}</span>
+                                            <span className="block">{cotizacion.address || 'N/A'}</span>
+                                            <span className="block">
+                                                {/* <Link href={`/dashboard/cotizaciones/${cotizacion.products.id}/mapa?lat=${cotizacion.location[0]}&long=${cotizacion.location[1]}`}>
+                                                    <GlobeAmericasIcon className="size-6 text-white" /> */}
+                                                {cotizacion.location}
+                                                lat: {cotizacion.location[0]}
+                                                <br />
+                                                lng: {cotizacion.location[1]}
+                                                {/* </Link> */}
+                                            </span>
                                         </address>
                                     </dd>
                                 </div>

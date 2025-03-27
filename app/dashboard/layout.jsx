@@ -5,18 +5,8 @@ import Link from 'next/link'
 import Navegacion from "@/components/navigation";
 import ButtonOpenSidebar from "@/components/button-open-sidebar";
 import MobileSidebar from "@/components/mobile-sidebar";
-import Aurora from "@/components/aurora";
+// import Aurora from "@/components/aurora";
 
-const teams = [
-    { id: 1, name: 'Planetaria', href: '#', initial: 'P', current: false },
-    { id: 2, name: 'Protocol', href: '#', initial: 'P', current: false },
-    { id: 3, name: 'Tailwind Labs', href: '#', initial: 'T', current: false },
-]
-
-
-function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
-}
 
 export const metadata = {
     title: 'DashBoard aministrativo',
@@ -32,16 +22,16 @@ export default async function DashBoardLayout({
     if (!sesssion?.user) redirect('/');
 
     return (
-        <div>
-            <Aurora
+        <div className="bg-zinc-950 h-full">
+            {/* <Aurora
                 speed={0.5}
-            />
+            /> */}
             <MobileSidebar />
 
             {/* Static sidebar for desktop */}
             <div className="hidden xl:fixed xl:inset-y-0 xl:z-50 xl:flex xl:w-72 xl:flex-col">
                 {/* Sidebar component, swap this element with another sidebar if you like */}
-                <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-black/10 px-6 ring-1 ring-white/5">
+                <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-zinc-800 px-6 ring-1 ring-white/5">
                     <div className="flex h-16 shrink-0 items-center">
                         <img
                             alt="Your Company"

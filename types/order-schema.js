@@ -13,7 +13,7 @@ export const cotizacionSchema = z.object({
     email: z.string().email({ message: 'Ingrese un email válido' }).optional().or(z.literal('')),
     address: z.string().max(100, { message: 'sobrepaso el máximo numero de caracteres' }),
     location: z.array(z.coerce.number()).length(2, { message: 'Debe ingresar coordenadas validas' }),
-    ruc: z.optional(z.number()),
+    ruc: z.optional(z.coerce.number()),
     productId: z.string().uuid(),
     // updated: timestamp('updated').defaultNow(),
 
